@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='img/icon.png') }}" rel="icon" type="image/x-icon">
+    <title>Flask NavBar Template</title>
+</head>
+<body>
+<header>
+    <h1 class="logo">Dog Finder</h1>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('search') }}">Search</a>
+        <a href="{{ url_for('breed_info') }}">All Breeds</a>
+    </nav>
+</header>
+
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

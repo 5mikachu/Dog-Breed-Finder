@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>PWS - Micah van der Horst</title>
+</head>
+<body class="article">
+
+{% extends "header.html" %}
+{% block content %}
+
+<div id="header">
+    <h1>PWS - Micah van der Horst</h1>
+    <div class="toc" id="toc">
+        <div id="toctitle">Table of Contents</div>
+        <ul class="sectlevel1">
+            <li><a href="#_preface">Preface</a></li>
+            <li><a href="#_data_visualization">Data visualization</a>
+                <ul class="sectlevel2">
+                    <li><a href="#_now">Now</a></li>
+                    <li><a href="#_interaction">Interaction</a></li>
+                    <li><a href="#_data_visualizations_in_the_digital_age">Data Visualizations in the Digital Age</a>
+                    </li>
+                    <li><a href="#_tools_for_creating_data_visualizations">Tools for Creating Data Visualizations</a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#_json">JSON</a>
+                <ul class="sectlevel2">
+                    <li><a href="#_what_is_json">What is JSON</a></li>
+                    <li><a href="#_why_use_json">Why use JSON</a></li>
+                    <li><a href="#_json_and_html">JSON and HTML</a></li>
+                    <li><a href="#_json_vs_xml">JSON vs XML</a></li>
+                </ul>
+            </li>
+            <li><a href="#_open_source">Open source</a>
+                <ul class="sectlevel2">
+                    <li><a href="#_what_is_open_source">What is open source</a></li>
+                    <li><a href="#_what_is_not_open_source">What is not open source</a></li>
+                    <li><a href="#_open_source_licenses">Open source licenses</a></li>
+                    <li><a href="#_open_source_why_not">Open source: why (not)</a></li>
+                    <li><a href="#_open_source_and_my_pws">Open source and my PWS</a></li>
+                    <li><a href="#_examples_of_open_source_alternatives">Examples of open source alternatives</a></li>
+                </ul>
+            </li>
+            <li><a href="#_python">Python</a>
+                <ul class="sectlevel2">
+                    <li><a href="#_introduction_to_python">Introduction to Python</a></li>
+                    <li><a href="#_ease_of_use">Ease of Use</a></li>
+                    <li><a href="#_python_and_html_flask">Python and HTML: Flask</a></li>
+                </ul>
+            </li>
+            <li><a href="#_sources">Sources</a></li>
+        </ul>
+    </div>
+</div>
+<div id="content">
+    <div class="sect1">
+        <h2 id="_preface">Preface</h2>
+        <div class="sectionbody">
+            <div class="paragraph">
+                <p>&#8230;&#8203;</p>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="_data_visualization">Data visualization</h2>
+        <div class="sectionbody">
+            <div class="sect2">
+                <h3 id="_now">Now</h3>
+                <div class="quoteblock">
+                    <blockquote>
+                        Remember when we thought stupidity was caused by a lack of proper data&#8230;&#8203;?
+                    </blockquote>
+                    <div class="attribution">
+                        &#8212; unknown
+                    </div>
+                </div>
+                <div class="paragraph">
+                    <p>In this age of data, understanding and effectively communicating data is becoming more and more
+                        important. Sadly, data is easy to manipulate, and the actual data is often hard to understand
+                        due to its static nature.</p>
+                </div>
+                <div class="paragraph">
+                    <p>Data is either presented as pages of text filled with raw numbers or as oversimplified visuals
+                        that can underestimate the audience&#8217;s ability to interpret the information. This leads to
+                        a gap in reader comprehension — between those who can manipulate data on their own and those who
+                        are only presented with processed data.</p>
+                </div>
+                <div class="sect3">
+                    <h4 id="_restaurant_menus">Restaurant menus</h4>
+                    <div class="paragraph">
+                        <p>An example we all know is restaurant menus. It is often hard to know what contains what and
+                            if certain items could interfere with any dietary needs. For people with dyslexia, this is
+                            even more challenging, as the ingredients are typically listed in smaller fonts, and menu
+                            design often prioritizes style over function. And although many restaurants are moving their
+                            menus to a digital medium, they often just scan the menu, failing to take advantage of the
+                            interactivity offered by the digital platform.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_interaction">Interaction</h3>
+                <div class="paragraph">
+                    <p>If restaurants instead made their menus interactive, such as with toggles for allergies, it would
+                        mean less work and a more satisfactory experience for the user.</p>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_data_visualizations_in_the_digital_age">Data Visualizations in the Digital Age</h3>
+                <div class="paragraph">
+                    <p>In the current digital era, data visualizations are integral to decision-making processes. From
+                        businesses to governments, graphical representations of data help quickly identify trends,
+                        correlations, and outliers that would otherwise be hidden in numbers. However, while technology
+                        offers numerous tools for generating charts and graphs, the design of these visuals remains
+                        paramount.</p>
+                </div>
+                <div class="sect3">
+                    <h4 id="_importance_of_visual_design">Importance of Visual Design</h4>
+                    <div class="paragraph">
+                        <p>Data visualization is not just about showing data; it’s about communication. The visual
+                            presentation must ensure clarity, accuracy, and efficiency. Poorly designed visuals can lead
+                            to misinterpretation, confusion, or even mistrust in the data presented. An essential
+                            element of effective data visualization is choosing the right type of graph or chart for the
+                            data.</p>
+                    </div>
+                    <table class="tableblock frame-all grid-all fit-content">
+                        <caption class="title">Table 1. Forms of Graphs and Charts</caption>
+                        <colgroup>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <td class="tableblock halign-left valign-top"><p class="tableblock">Type of Data</p></td>
+                            <td class="tableblock halign-left valign-top"><p class="tableblock">Suitable Chart Type</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tableblock halign-left valign-top"><p class="tableblock">Time series data <sup
+                                    class="footnote">[<a class="footnote" href="#_footnotedef_1" id="_footnoteref_1"
+                                                         title="View footnote.">1</a>]</sup></p></td>
+                            <td class="tableblock halign-left valign-top"><p class="tableblock">Line chart <sup
+                                    class="footnote">[<a class="footnote" href="#_footnotedef_2" id="_footnoteref_2"
+                                                         title="View footnote.">2</a>]</sup></p></td>
+                        </tr>
+                        <tr>
+                            <td class="tableblock halign-left valign-top"><p class="tableblock">Comparison of
+                                categories</p></td>
+                            <td class="tableblock halign-left valign-top"><p class="tableblock">Bar chart <sup
+                                    class="footnote">[<a class="footnote" href="#_footnotedef_3" id="_footnoteref_3"
+                                                         title="View footnote.">3</a>]</sup></p></td>
+                        </tr>
+                        <tr>
+                            <td class="tableblock halign-left valign-top"><p class="tableblock">Proportions</p></td>
+                            <td class="tableblock halign-left valign-top"><p class="tableblock">Pie chart <sup
+                                    class="footnote">[<a class="footnote" href="#_footnotedef_4" id="_footnoteref_4"
+                                                         title="View footnote.">4</a>]</sup></p></td>
+                        </tr>
+                        <tr>
+                            <td class="tableblock halign-left valign-top"><p class="tableblock">Correlation between
+                                variables <sup class="footnote">[<a class="footnote" href="#_footnotedef_5"
+                                                                    id="_footnoteref_5" title="View footnote.">5</a>]</sup>
+                            </p></td>
+                            <td class="tableblock halign-left valign-top"><p class="tableblock">Scatter plot <sup
+                                    class="footnote">[<a class="footnote" href="#_footnotedef_6" id="_footnoteref_6"
+                                                         title="View footnote.">6</a>]</sup></p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="paragraph">
+                        <p>Data visualizations, when done correctly, make complex data more digestible for a wider
+                            audience, helping decision-makers grasp insights quickly.</p>
+                    </div>
+                </div>
+                <div class="sect3">
+                    <h4 id="_accessibility_in_data_visualizations">Accessibility in Data Visualizations</h4>
+                    <div class="paragraph">
+                        <p>Much like text-based information, visual data can pose challenges for people with
+                            disabilities. For example, individuals with color blindness may struggle to differentiate
+                            between colors in a chart, while those with dyslexia may find the accompanying labels
+                            difficult to read. Ensuring that data visualizations are accessible is essential in today’s
+                            design practices.</p>
+                    </div>
+                    <div class="paragraph">
+                        <p>Here are some best practices for accessible data visualizations:</p>
+                    </div>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p>Use high-contrast colors <sup class="footnote">[<a class="footnote"
+                                                                                      href="#_footnotedef_7"
+                                                                                      id="_footnoteref_7"
+                                                                                      title="View footnote.">7</a>]</sup>
+                                    and avoid relying on color alone to convey meaning.</p>
+                            </li>
+                            <li>
+                                <p>Include alternative text <sup class="footnote">[<a class="footnote"
+                                                                                      href="#_footnotedef_8"
+                                                                                      id="_footnoteref_8"
+                                                                                      title="View footnote.">8</a>]</sup>
+                                    for graphs and charts, describing the key trends or findings.</p>
+                            </li>
+                            <li>
+                                <p>Provide clear labels and annotations that are easy to read and comprehend.</p>
+                            </li>
+                            <li>
+                                <p>Ensure that interactive elements, like hover-over details or clickable points, are
+                                    intuitive for all users.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="paragraph">
+                        <p>By considering these factors, data visualizations can become more inclusive, catering to a
+                            broader audience, including those with disabilities.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_tools_for_creating_data_visualizations">Tools for Creating Data Visualizations</h3>
+                <div class="paragraph">
+                    <p>Various tools are available that help create powerful, dynamic, and interactive data
+                        visualizations. Some of these tools are user-friendly for beginners, while others offer more
+                        advanced customization options.</p>
+                </div>
+                <table class="tableblock frame-all grid-all fit-content">
+                    <caption class="title">Table 2. Popular Tools for Data Visualization</caption>
+                    <colgroup>
+                        <col>
+                        <col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Tool</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Tableau</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">A powerful tool for creating
+                            interactive and shareable dashboards <sup class="footnote">[<a class="footnote"
+                                                                                           href="#_footnotedef_9"
+                                                                                           id="_footnoteref_9"
+                                                                                           title="View footnote.">9</a>]</sup>.
+                        </p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Power BI</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft’s tool for
+                            building interactive reports with data from multiple sources.</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Google Data Studio</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">A free tool that allows
+                            users to transform data into informative dashboards.</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">D3.js</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">A JavaScript library <sup
+                                class="footnote">[<a class="footnote" href="#_footnotedef_10" id="_footnoteref_10"
+                                                     title="View footnote.">10</a>]</sup> for creating custom data
+                            visualizations in web browsers.</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph">
+                    <p>Each tool has its strengths, from drag-and-drop simplicity to deep customization through coding.
+                        The right tool depends on the user&#8217;s needs, technical ability, and the complexity of the
+                        data involved.</p>
+                </div>
+                <div class="sect3">
+                    <h4 id="_the_future_of_data_visualization">The Future of Data Visualization</h4>
+                    <div class="paragraph">
+                        <p>With the growing influence of artificial intelligence (AI) and machine learning (ML), data
+                            visualization is evolving beyond static graphs. Predictive analytics and automated insights
+                            can now be integrated into visualizations, allowing users not only to view past data but
+                            also to anticipate future trends.</p>
+                    </div>
+                    <div class="paragraph">
+                        <p>In the future, we can expect more interactive and immersive experiences, where users can
+                            manipulate data in real time <sup class="footnote">[<a class="footnote" href="#_footnotedef_11"
+                                                                                   id="_footnoteref_11"
+                                                                                   title="View footnote.">11</a>]</sup>,
+                            explore different scenarios, and receive instant feedback. The combination of AI-driven
+                            insights and intuitive interfaces will make data visualization an even more essential tool
+                            in decision-making processes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="_json">JSON</h2>
+        <div class="sectionbody">
+            <div class="sect2">
+                <h3 id="_what_is_json">What is JSON</h3>
+                <div class="quoteblock">
+                    <blockquote>
+                        JSON is the lingua franca of the web
+                    </blockquote>
+                    <div class="attribution">
+                        &#8212; Arun Gupta<br>
+                        <cite>Java Ee 7 Essentials</cite>
+                    </div>
+                </div>
+                <div class="paragraph">
+                    <p>JSON is an abbreviation for JavaScript Object Notation (W3Schools.com, n.d.) and is used to store
+                        large amount of data. Although the name mentions JavaScript, it is not only usable with
+                        JavaScrip, on the contrary, JSON can be used in most of — if not all — of the most widely used
+                        programming languages.</p>
+                </div>
+                <div class="paragraph">
+                    <p>JSON uses two 'structures'; a collection of name/value pairs and an ordered list of values (JSON,
+                        n.d.). In JSON these can be of multiple forms:</p>
+                </div>
+                <table class="tableblock frame-all grid-all fit-content">
+                    <caption class="title">Table 3. Forms of JSON components</caption>
+                    <colgroup>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Information</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Start with</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Ends with</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Names / Values</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">{</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">}</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">array</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Values</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">[</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">]</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">String / Number / Boolean
+                            <sup class="footnote">[<a class="footnote" href="#_footnotedef_12" id="_footnoteref_12"
+                                                      title="View footnote.">12</a>]</sup> / NULL / object / array</p>
+                        </td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Unicode charters</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">"</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">"</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">number</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Numbers</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="sect2">
+                <h3 id="_why_use_json">Why use JSON</h3>
+                <div class="paragraph">
+                    <p>As mentioned before, JSON can be interfaced with from nearly all widespread coding-languages.</p>
+                </div>
+                <div class="paragraph">
+                    <p>JSON&#8217;s format is lightweight and easy to read for both humans and machines. Its structure
+                        is composed of name/value pairs, which makes it highly flexible for encoding complex data
+                        structures, such as arrays and objects. JSON’s simplicity allows developers to quickly interpret
+                        and manipulate data, particularly in web development where the interchange of data between
+                        servers and clients is common.</p>
+                </div>
+                <div class="paragraph">
+                    <p>One of the key features of JSON is that it uses <strong>text</strong> format, which makes it
+                        compatible with almost any data interchange application. Whether you&#8217;re working with
+                        Python, Java or JavaScript, JSON&#8217;s simplicity reduces the need for complex mechanisms for
+                        data handling, speeding up development time.</p>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_json_and_html">JSON and HTML</h3>
+                <div class="paragraph">
+                    <p>JSON and HTML <sup class="footnote">[<a class="footnote" href="#_footnotedef_13"
+                                                               id="_footnoteref_13"
+                                                               title="View footnote.">13</a>]</sup> work really well
+                        together in web development. While HTML is used for structures and structures the content of web
+                        pages, JSON is responsible for the exchange of data. In a web application, the front-end (HTML)
+                        often requires fresh data from the back-end (server), and JSON can be used for communication
+                        between the two.</p>
+                </div>
+                <div class="paragraph">
+                    <p>An example of their interaction can be seen in AJAX <sup class="footnote">[<a
+                            class="footnote" href="#_footnotedef_14" id="_footnoteref_14" title="View footnote.">14</a>]</sup>
+                        requests, in which JSON is often the preferred data format due to its lightweight nature. When
+                        an AJAX request is made, JSON serves as the way to save the data, allowing the server to send
+                        this data back to the front-end without a page refresh.</p>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_json_vs_xml">JSON vs XML</h3>
+                <div class="paragraph">
+                    <p>Before JSON became the standard for data interchange on the web, XML (eXtensible Markup Language)
+                        was more widely used. While XML is more suited for representing and storing complex data
+                        structures, it is also more verbose and thus less lightweight. JSON, on the other hand, is more
+                        compact and more human readable, making it a preferred choice for most modern applications.</p>
+                </div>
+                <div class="sect3">
+                    <h4 id="_main_differences_between_json_and_xml">Main Differences between JSON and XML</h4>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p>JSON is more lightweight, using fewer characters to represent data.</p>
+                            </li>
+                            <li>
+                                <p>XML requires opening and closing tags, while JSON uses braces <code>{}</code> and
+                                    brackets <code>[]</code> for structure.</p>
+                            </li>
+                            <li>
+                                <p>Parsing JSON is generally faster than XML parsing in most programming
+                                    environments.</p>
+                            </li>
+                            <li>
+                                <p>JSON supports a smaller set of data types compared to XML but is easier to
+                                    manipulate.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="paragraph">
+                        <p>In essence, JSON&#8217;s simplicity makes it ideal for applications that need to quickly
+                            exchange data with minimal overhead.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="_open_source">Open source</h2>
+        <div class="sectionbody">
+            <div class="sect2">
+                <h3 id="_what_is_open_source">What is open source</h3>
+                <div class="quoteblock">
+                    <blockquote>
+                        Open source software is software with source code that anyone can inspect, modify, and enhance.
+                    </blockquote>
+                    <div class="attribution">
+                        &#8212; opensource.com
+                    </div>
+                </div>
+                <div class="paragraph">
+                    <p>The source <sup class="footnote">[<a class="footnote" href="#_footnotedef_15"
+                                                            id="_footnoteref_15" title="View footnote.">15</a>]</sup>
+                        of an open source product is — as the name implies — open and can be viewed and modified by
+                        anyone, without first having to be approved. This does, however, not mean the product has to be
+                        free. Open source project can monetize their product by charging for extended services or for
+                        compiling the program <sup class="footnote">[<a class="footnote" href="#_footnotedef_16"
+                                                                        id="_footnoteref_16" title="View footnote.">16</a>]</sup>
+                    </p>
+                </div>
+                <div class="paragraph">
+                    <p>Open source is built upon three main pillars;</p>
+                </div>
+                <div class="olist arabic">
+                    <ol class="arabic">
+                        <li>
+                            <p><strong>Transparency</strong>; When working open source it is important to share
+                                information you find, and not only the source. This helps others work
+                                <strong>upon</strong> our work, instead of alongside and having to do the same work
+                                twice.</p>
+                        </li>
+                        <li>
+                            <p><strong>Collaboration</strong>; Collaboration not only makes us work faster, it also
+                                makes the maximum scale of the things we can do larger. This means we can solve problems
+                                we either didn&#8217;t know existed or problems we couldn&#8217;t have solved on our
+                                own.</p>
+                        </li>
+                        <li>
+                            <p><strong>Community</strong>; Communities are needed to not guide decision making, making
+                                product more inclusive .</p>
+                        </li>
+                    </ol>
+                </div>
+                <div class="paragraph">
+                    <p>An example of an open-source-monetized project is (Aseprite)[<a class="bare"
+                                                                                       href="https://aseprite.org/">https://aseprite.org/</a>].
+                        Aseprite is an open source program, the code can be found (here)[<a
+                                class="bare" href="https://github.com/aseprite/aseprite">https://github.com/aseprite/aseprite</a>],
+                        and if someone want to, thy can modify it. But when they want to download and use it they either
+                        have to pay for the compiled version or spend the time compiling it themselves.</p>
+                </div>
+                <div class="sect3">
+                    <h4 id="_open_source_in_switzerland">Open source in Switzerland</h4>
+                    <div class="paragraph">
+                        <p>
+                            <a class="bare"
+                               href="https://www.zdnet.com/article/switzerland-now-requires-all-government-software-to-be-open-source/">https://www.zdnet.com/article/switzerland-now-requires-all-government-software-to-be-open-source/</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_what_is_not_open_source">What is not open source</h3>
+                <div class="paragraph">
+                    <p>If something is not open source only a select group of people can see and modify the source. For
+                        example, programs like Microsoft Word or Adobe Photoshop are not open source. You cannot just
+                        view the source code, change how the program works or add new features by yourself. Only the
+                        company or specific developers who work for that company can do these things.</p>
+                </div>
+                <div class="paragraph">
+                    <p>These types of programs are called closed source, meaning the code is hidden from most people.
+                        Companies often do this to protect their intellectual property or to maintain control over how
+                        their software is used.</p>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_open_source_licenses">Open source licenses</h3>
+                <div class="paragraph">
+                    <p>Even though open source means anyone can view or modify the software, there are still some rules
+                        about how it can be used. These rules are defined by something called a <strong>license</strong>
+                        <sup class="footnote">[<a class="footnote" href="#_footnotedef_17" id="_footnoteref_17"
+                                                  title="View footnote.">17</a>]</sup>. Open source licenses allow the
+                        creator (or other license holders) to specify what others can or cannot do with their
+                        intellectual property.</p>
+                </div>
+                <div class="paragraph">
+                    <p>Some licenses are more permissive, meaning you can pretty much do anything with the software,
+                        including using it for commercial purposes. Others have more restrictions such as requiring you
+                        to share any improvements you make with the community or prohibiting commercial use
+                        entirely.</p>
+                </div>
+                <div class="paragraph">
+                    <p>Some popular open-source licenses are:</p>
+                </div>
+                <div class="ulist">
+                    <ul>
+                        <li>
+                            <p><strong>MIT License</strong>; One of the most open licenses. It allows anyone to do
+                                anything with the software as long as they credit the original creator(s).</p>
+                        </li>
+                        <li>
+                            <p><strong>GNU General Public License (GPL)</strong>; This license ensures that any
+                                modifications to the software must also be open source and shared with the community.
+                            </p>
+                        </li>
+                        <li>
+                            <p><strong>Apache License</strong>; Allows users to freely use, modify, and distribute the
+                                software with some added protections for the original authors.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_open_source_why_not">Open source: why (not)</h3>
+                <div class="paragraph">
+                    <p>There are al lot of reasons why people choose to use or not use open-source software. Let&#8217;s
+                        explore a few:</p>
+                </div>
+                <div class="sect3">
+                    <h4 id="_why_use_open_source">Why use open source?</h4>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p><strong>Cost</strong>; Open source software is often free to use, which can save
+                                    individuals and businesses a lot of money.</p>
+                            </li>
+                            <li>
+                                <p><strong>Transparency</strong>; Because the code is open for everyone to see, there&#8217;s
+                                    no hidden agenda. Users can inspect the code to make sure there are no security
+                                    risks or unethical practices.</p>
+                            </li>
+                            <li>
+                                <p><strong>Community Support</strong>; Open source projects often have large, active
+                                    communities that contribute by improving the software and offering help to others.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sect3">
+                    <h4 id="_why_not_use_open_source">Why not use open source?</h4>
+                    <div class="ulist">
+                        <ul>
+                            <li>
+                                <p><strong>Monetization</strong>; While some open-source projects do make money, it&#8217;s
+                                    harder to build a profitable business around open-source software compared to
+                                    closed-source software, where you can charge for every copy.</p>
+                            </li>
+                            <li>
+                                <p><strong>Time and Effort</strong>; Using open-source software can sometimes require
+                                    more effort, especially if you need to compile it yourself or if the project lacks
+                                    user-friendly documentation.</p>
+                            </li>
+                            <li>
+                                <p><strong>Secrets</strong>; Some businesses or individuals may prefer closed-source
+                                    software if they don&#8217;t want to share their innovations with competitors.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_open_source_and_my_pws">Open source and my PWS</h3>
+                <div class="paragraph">
+                    <p>In my PWS, I aim to use as many open-source products as possible. This decision aligns with the
+                        philosophy of transparency, community, and collaboration. For example, instead of using
+                        Microsoft Word, I will use <strong>LibreOffice Writer</strong>, and instead of Google Chrome, I
+                        will opt for <strong>Firefox</strong>. While it&#8217;s not always possible to avoid
+                        closed-source products, I will try to minimize their use by finding suitable open-source
+                        alternatives.</p>
+                </div>
+                <div class="paragraph">
+                    <p>To help with this, I will frequently consult websites like <a
+                            class="bare" href="https://www.opensourcealternative.to/">https://www.opensourcealternative.to/</a>,
+                        which lists open-source alternatives to popular closed-source programs.</p>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_examples_of_open_source_alternatives">Examples of open source alternatives</h3>
+                <div class="paragraph">
+                    <p>Here are some common closed-source programs and their open-source counterparts:</p>
+                </div>
+                <table class="tableblock frame-all grid-all fit-content">
+                    <caption class="title">Table 4. All the open-source alternatives</caption>
+                    <colgroup>
+                        <col>
+                        <col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft Word</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">LibreOffice Writer <sup
+                                class="footnote">[<a class="footnote" href="#_footnotedef_18" id="_footnoteref_18"
+                                                     title="View footnote.">18</a>]</sup></p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft Windows</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Fedora Linux 40 <sup
+                                class="footnote">[<a class="footnote" href="#_footnotedef_19" id="_footnoteref_19"
+                                                     title="View footnote.">19</a>]</sup></p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph">
+                    <p>Using open-source alternatives doesn&#8217;t just save money, it also promotes transparency, and
+                        by contributing to these projects, anyone can help improve the software for everyone.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="_python">Python</h2>
+        <div class="sectionbody">
+            <div class="sect2">
+                <h3 id="_introduction_to_python">Introduction to Python</h3>
+                <div class="quoteblock">
+                    <blockquote>
+                        Python&#8217;s name comes from Monty Python, not the snake.
+                    </blockquote>
+                    <div class="attribution">
+                        &#8212; Guido van Rossum<br>
+                        <cite>Python Creator</cite>
+                    </div>
+                </div>
+                <div class="paragraph">
+                    <p>Python is a high-level <sup class="footnote">[<a class="footnote" href="#_footnotedef_20"
+                                                                        id="_footnoteref_20" title="View footnote.">20</a>]</sup>
+                        general-purpose programming language that has become one of the most widely used languages in
+                        the world. Its name, inspired by the British comedy group Monty Python, reflects its creator&#8217;s
+                        desire to make programming fun and accessible. Python’s simplicity and readability make it an
+                        excellent choice for both beginners and experienced developers alike.</p>
+                </div>
+                <div class="paragraph">
+                    <p>Python supports multiple programming paradigms <sup class="footnote">[<a class="footnote"
+                                                                                                href="#_footnotedef_21"
+                                                                                                id="_footnoteref_21"
+                                                                                                title="View footnote.">21</a>]</sup>,
+                        which makes it versatile and applicable to a wide range of tasks — from web development to data
+                        analysis.</p>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_ease_of_use">Ease of Use</h3>
+                <div class="paragraph">
+                    <p>Python&#8217;s syntax <sup class="footnote">[<a class="footnote" href="#_footnotedef_22"
+                                                                       id="_footnoteref_22"
+                                                                       title="View footnote.">22</a>]</sup> is designed
+                        to be easy to read and write, often being compared to plain English. This minimizes the learning
+                        curve for new developers while allowing experienced coders to work more efficiently. The
+                        language&#8217;s large standard library <sup class="footnote">[<a class="footnote"
+                                                                                          href="#_footnotedef_23"
+                                                                                          id="_footnoteref_23"
+                                                                                          title="View footnote.">23</a>]</sup>
+                        further simplifies tasks, providing built-in modules for handling everything from file I/O to
+                        complex mathematical computations.</p>
+                </div>
+                <table class="tableblock frame-all grid-all fit-content">
+                    <caption class="title">Table 5. Forms of Python simplicity:</caption>
+                    <colgroup>
+                        <col>
+                        <col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Feature</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Benefit</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Readable syntax</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Easy to learn and
+                            understand</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Large standard library</p>
+                        </td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Pre-built modules for
+                            various tasks</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Cross-platform compatibility
+                            <sup class="footnote">[<a class="footnote" href="#_footnotedef_24" id="_footnoteref_24"
+                                                      title="View footnote.">24</a>]</sup></p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Write once, run anywhere</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="sect2">
+                <h3 id="_python_and_html_flask">Python and HTML: Flask</h3>
+                <div class="paragraph">
+                    <p>Python&#8217;s ease of use extends into web development, especially when combined with HTML <sup
+                            class="footnote">[<a class="footnote" href="#_footnotedef_25" id="_footnoteref_25"
+                                                 title="View footnote.">25</a>]</sup> through web frameworks like Flask
+                        <sup class="footnote">[<a class="footnote" href="#_footnotedef_26" id="_footnoteref_26"
+                                                  title="View footnote.">26</a>]</sup>. Flask is a micro-framework <sup
+                                class="footnote">[<a class="footnote" href="#_footnotedef_27" id="_footnoteref_27"
+                                                     title="View footnote.">27</a>]</sup> that allows developers to
+                        build web applications quickly and with minimal complexity. It’s known for its simplicity and
+                        flexibility, making it an ideal choice for small to medium-sized applications.</p>
+                </div>
+                <div class="paragraph">
+                    <p>With Flask, Python integrates seamlessly with HTML, enabling developers to create dynamic
+                        websites that serve data, handle user input, and more. This combination empowers developers to
+                        build anything from simple web forms to full-fledged APIs <sup class="footnote">[<a
+                                class="footnote" href="#_footnotedef_28" id="_footnoteref_28"
+                                title="View footnote.">28</a>]</sup>.</p>
+                </div>
+                <table class="tableblock frame-all grid-all fit-content">
+                    <caption class="title">Table 6. Popular use cases of Python with Flask:</caption>
+                    <colgroup>
+                        <col>
+                        <col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Web forms</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Quickly handle user
+                            input</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">RESTful APIs <sup
+                                class="footnote">[<a class="footnote" href="#_footnotedef_29" id="_footnoteref_29"
+                                                     title="View footnote.">29</a>]</sup></p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Build lightweight web
+                            services</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Data visualization</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Embed charts and graphs
+                            directly into web pages</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph">
+                    <p>Python, with its vast ecosystem of libraries and frameworks like Flask, continues to be a
+                        powerful tool for developers who need a flexible and user-friendly language for both backend and
+                        web development.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="_sources">Sources</h2>
+        <div class="sectionbody">
+            <div class="paragraph">
+                <p>W3Schools.com. (n.d.). <a class="bare" href="https://www.w3schools.com/whatis/whatis_json.asp">https://www.w3schools.com/whatis/whatis_json.asp</a>
+                    JSON. (n.d.). <a class="bare" href="https://www.json.org/json-en.html">https://www.json.org/json-en.html</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footnotes">
+    <hr>
+    <div class="footnote" id="_footnotedef_1">
+        <a href="#_footnoteref_1">1</a>. Time series data: Data points indexed in time order, often used to track
+        changes over time.
+    </div>
+    <div class="footnote" id="_footnotedef_2">
+        <a href="#_footnoteref_2">2</a>. Line chart: A type of graph that displays information as a series of data
+        points connected by straight lines.
+    </div>
+    <div class="footnote" id="_footnotedef_3">
+        <a href="#_footnoteref_3">3</a>. Bar chart: A chart that presents categorical data with rectangular bars
+        representing the values.
+    </div>
+    <div class="footnote" id="_footnotedef_4">
+        <a href="#_footnoteref_4">4</a>. Pie chart: A circular chart divided into sectors to illustrate numerical
+        proportions.
+    </div>
+    <div class="footnote" id="_footnotedef_5">
+        <a href="#_footnoteref_5">5</a>. Correlation: A statistical measure that describes the extent to which two
+        variables change together.
+    </div>
+    <div class="footnote" id="_footnotedef_6">
+        <a href="#_footnoteref_6">6</a>. Scatter plot: A graph with points plotted to show a relationship between two
+        variables.
+    </div>
+    <div class="footnote" id="_footnotedef_7">
+        <a href="#_footnoteref_7">7</a>. High-contrast colors: Colors that have a large difference in brightness or hue,
+        making them easy to distinguish.
+    </div>
+    <div class="footnote" id="_footnotedef_8">
+        <a href="#_footnoteref_8">8</a>. Alternative text: Descriptive text that can be read by screen readers to
+        provide information for visually impaired users.
+    </div>
+    <div class="footnote" id="_footnotedef_9">
+        <a href="#_footnoteref_9">9</a>. Dashboard: A graphical interface that displays key information in a summarized
+        format.
+    </div>
+    <div class="footnote" id="_footnotedef_10">
+        <a href="#_footnoteref_10">10</a>. JavaScript library: Pre-written JavaScript code that allows for easier
+        development of certain functionalities.
+    </div>
+    <div class="footnote" id="_footnotedef_11">
+        <a href="#_footnoteref_11">11</a>. Real time: The immediate processing of data as it comes in, without delay.
+    </div>
+    <div class="footnote" id="_footnotedef_12">
+        <a href="#_footnoteref_12">12</a>. Boolean: A value, either True or False
+    </div>
+    <div class="footnote" id="_footnotedef_13">
+        <a href="#_footnoteref_13">13</a>. HTML: HyperText Markup Language and is the standard markup language for
+        creating web pages.
+    </div>
+    <div class="footnote" id="_footnotedef_14">
+        <a href="#_footnoteref_14">14</a>. AJAX: Asynchronous JavaScript and XML
+    </div>
+    <div class="footnote" id="_footnotedef_15">
+        <a href="#_footnoteref_15">15</a>. Source: all the components of something, this includes (but is not limited
+        to) images, code and videos
+    </div>
+    <div class="footnote" id="_footnotedef_16">
+        <a href="#_footnoteref_16">16</a>. Compiling: The process of translating source code into machine code that can
+        be run directly by a computer.
+    </div>
+    <div class="footnote" id="_footnotedef_17">
+        <a href="#_footnoteref_17">17</a>. License: A legal document that explains how software or other intellectual
+        property can be used and shared.
+    </div>
+    <div class="footnote" id="_footnotedef_18">
+        <a href="#_footnoteref_18">18</a>. LibreOffice Writer: A free and open-source word processor that offers similar
+        functionality to Microsoft Word.
+    </div>
+    <div class="footnote" id="_footnotedef_19">
+        <a href="#_footnoteref_19">19</a>. Fedora Linux: A free, open-source operating system that can be used in place
+        of Microsoft Windows.
+    </div>
+    <div class="footnote" id="_footnotedef_20">
+        <a href="#_footnoteref_20">20</a>. High-level: A programming language that abstracts the complexities of the
+        computer&#8217;s hardware, making it easier to read and write.
+    </div>
+    <div class="footnote" id="_footnotedef_21">
+        <a href="#_footnoteref_21">21</a>. Programming paradigms: Different styles or approaches to programming, such as
+        procedural, object-oriented, and functional programming.
+    </div>
+    <div class="footnote" id="_footnotedef_22">
+        <a href="#_footnoteref_22">22</a>. Syntax: The set of rules that defines how a program should be written and
+        interpreted by the programming language.
+    </div>
+    <div class="footnote" id="_footnotedef_23">
+        <a href="#_footnoteref_23">23</a>. Standard library: A collection of pre-written code that comes bundled with
+        Python, offering modules for performing various tasks like file manipulation, math operations, and more.
+    </div>
+    <div class="footnote" id="_footnotedef_24">
+        <a href="#_footnoteref_24">24</a>. Cross-platform: Software that can run on multiple operating systems without
+        needing to be rewritten.
+    </div>
+    <div class="footnote" id="_footnotedef_25">
+        <a href="#_footnoteref_25">25</a>. HTML: HyperText Markup Language, the standard language for creating web
+        pages.
+    </div>
+    <div class="footnote" id="_footnotedef_26">
+        <a href="#_footnoteref_26">26</a>. Flask: A lightweight Python web framework used to build web applications
+        quickly with minimal overhead.
+    </div>
+    <div class="footnote" id="_footnotedef_27">
+        <a href="#_footnoteref_27">27</a>. Micro-framework: A web framework that provides only the essential components
+        for web development, giving developers flexibility to add features as needed.
+    </div>
+    <div class="footnote" id="_footnotedef_28">
+        <a href="#_footnoteref_28">28</a>. API: Application Programming Interface, a set of rules and tools that allow
+        different software applications to communicate with each other.
+    </div>
+    <div class="footnote" id="_footnotedef_29">
+        <a href="#_footnoteref_29">29</a>. RESTful API: A type of API that follows the principles of REST
+        (Representational State Transfer) architecture, often used for web services.
+    </div>
+</div>
+<div id="footer">
+    <div id="footer-text">
+        Last updated 2024-11-27 16:10:24 +0100
+    </div>
+</div>
+
+{% endblock %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
+<script>
+    if (!hljs.initHighlighting.called) {
+        hljs.initHighlighting.called = true
+        ;[].slice.call(document.querySelectorAll('pre.highlight > code[data-lang]')).forEach(function (el) {
+            hljs.highlightBlock(el)
+        })
+    }
+</script>
+</body>
+</html>

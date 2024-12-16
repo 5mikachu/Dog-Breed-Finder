@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Search for a Dog</title>
+</head>
+<body>
+
+{% extends "header.html" %}
+{% block content %}
+
+<h1>Find Your Ideal Dog</h1>
+<div class="flex-container">
+    <!-- Flexbox for form inputs -->
+    <div class="flex-item">
+        <form action="/search" method="POST">
+            {% for field, data in criteria.items() %}
+            <label for="{{ field }}">{{ data.label }}</label>
+            <select id="{{ field }}" name="{{ field }}" required>
+                <option disabled selected value="">Select an option</option>
+                {% for value, label in data.options.items() %}
+                <option value="{{ value }}">{{ label }}</option>
+                {% endfor %}
+            </select><br/>
+            {% endfor %}
+            <button class="button" type="submit">Search</button>
+        </form>
+    </div>
+
+    <!-- Flexbox for matching breeds -->
+    <div class="flex-item">
+        <h2>Matching Breeds:</h2>
+        {% if search %}
+        {% if breeds %}
+        <ul>
+            {% for breed in breeds %}
+            <li><a href="/breeds/{{ breed }}">{{ breed }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <em>No matching breeds found.</em>
+        {% endif %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+</body>
+</html>

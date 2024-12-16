@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon" type="image/x-icon">
+    <title>Dog Finder</title>
+</head>
+<body>
+<div class="splash-container">
+    <div class="splash-content">
+        <h1>Dog Finder</h1>
+        <p>Your go-to source for finding the perfect dog breed for you!</p>
+
+        <br/>
+
+        <div class="links">
+            <a class="button" href="{{ url_for('search') }}">Search for a Dog</a>
+            <a class="button" href="{{ url_for('breed_info') }}">View All Breeds</a>
+        </div>
+        <br/>
+    </div>
+</div>
+</body>
+</html>

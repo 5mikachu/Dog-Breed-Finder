@@ -1,0 +1,31 @@
+{
+    "children": {
+        "label": "Do you have children?",
+        "options": {
+            "yes": "Yes",
+            "no": "No"
+        }
+    },
+    "other_dogs": {
+        "label": "Do you have other dogs?",
+        "options": {
+            "yes": "Yes",
+            "no": "No"
+        }
+    },
+    "living_situation": {
+        "label": "Where do you live?",
+        "options": {
+            "small_apartment": "Small apartment",
+            "house_with_yard": "House with a yard",
+            "field": "Near a Field"
+        }
+    },
+    "training_time": {
+        "label": "How much time can you dedicate to training?",
+        "options": {
+            "low": "I can only spare a little time",
+            "high": "I can spend lots of time training"
+        }
+    }
+}
