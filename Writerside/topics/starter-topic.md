@@ -1,9 +1,5 @@
 # About Dog Finder
 
-## Homepage 
+Dog Breed Finder helps you choose a dog breed that fits your lifestyle and living situation. With features like detailed breed information and a search tool tailored to user preferences, the app ensures finding your perfect companion is easy and enjoyable.
 
-![breeds.png](../images/breeds.png)
-
-![index.png](../images/index.png)
-
-![search.png](../images/search.png)
+![](index.png)

@@ -10,4 +10,8 @@
         <description>Created after removal of "Homepage" from Dog Finder - End User</description>
         <accepts>Homepage.html</accepts>
     </rule>
+    <rule id="33f1720e">
+        <description>Created after removal of "File Structure" from Dog Finder - End User</description>
+        <accepts>file_structure.html</accepts>
+    </rule>
 </rules>

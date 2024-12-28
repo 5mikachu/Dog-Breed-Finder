@@ -20,8 +20,8 @@ Dog Breed Finder is a Flask-based web application that allows users to search fo
 
 1. Clone the repository:
 ```shell
-git clone https://github.com/5mikachu/dog-breed-finder.git
-cd dog-breed-finder
+git clone https://github.com/5mikachu/Dog-Breed-Finder.git
+cd Dog-Breed-Finder
 ```
 
 2. Install required dependencies:

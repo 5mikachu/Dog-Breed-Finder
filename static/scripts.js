@@ -38,44 +38,45 @@ function renderBreedInfo(breedName) {
             if (data.error) {
                 document.getElementById('breedInfo').innerHTML = `<p>${data.error}</p>`;
             } else {
+                const breedInfo = data.breed_info;  // Access the nested breed_info object
                 document.getElementById('breedInfo').innerHTML = `
                 <div class="flex-item">
                     <h2>Physical Attributes</h2>
                     <ul>
-                        <li><strong>Height:</strong> <br /> <em>${data.height}</em></li>
-                        <li><strong>Weight:</strong> <br /> <em>${data.weight}</em></li>
-                        <li><strong>Life Expectancy:</strong> <br /> <em>${data.life}</em></li>
-                        <li><strong>Coat Type:</strong> <br /> <em>${data.coat_type}</em></li>
-                        <li><strong>Coat Length:</strong> <br /> <em>${data.coat_length}</em></li>
+                        <li><strong>Height:</strong> <br /> <em>${breedInfo.height}</em></li>
+                        <li><strong>Weight:</strong> <br /> <em>${breedInfo.weight}</em></li>
+                        <li><strong>Life Expectancy:</strong> <br /> <em>${breedInfo.life}</em></li>
+                        <li><strong>Coat Type:</strong> <br /> <em>${breedInfo.coat_type}</em></li>
+                        <li><strong>Coat Length:</strong> <br /> <em>${breedInfo.coat_length}</em></li>
                     </ul>
                 </div>
 
                 <div class="flex-item">
                     <h2>Temperament</h2>
-                    ${renderBar('Affectionate with Family', data.affectionate_family)}
-                    ${renderBar('Good with Children', data.children)}
-                    ${renderBar('Good with Other Dogs', data.other_dogs)}
-                    ${renderBar('Friendliness with Strangers', data.strangers)}
-                    ${renderBar('Playfulness Level', data.playfulness)}
-                    ${renderBar('Protective Nature', data.protective)}
+                    ${renderBar('Affectionate with Family', breedInfo.affectionate_family)}
+                    ${renderBar('Good with Children', breedInfo.children)}
+                    ${renderBar('Good with Other Dogs', breedInfo.other_dogs)}
+                    ${renderBar('Friendliness with Strangers', breedInfo.strangers)}
+                    ${renderBar('Playfulness Level', breedInfo.playfulness)}
+                    ${renderBar('Protective Nature', breedInfo.protective)}
                 </div>
 
                 <div class="flex-item">
                     <h2>Care Requirements</h2>
-                    ${renderBar('Shedding Level', data.shedding)}
-                    ${renderBar('Grooming Frequency', data.groom_frequency)}
-                    ${renderBar('Drooling Level', data.drooling)}
-                    ${renderBar('Adaptability', data.adaptability)}
-                    ${renderBar('Trainability', data.trainability)}
-                    ${renderBar('Energy Level', data.energy)}
-                    ${renderBar('Barking Level', data.barking)}
-                    ${renderBar('Stimulation Needs', data.stimulation_needs)}
+                    ${renderBar('Shedding Level', breedInfo.shedding)}
+                    ${renderBar('Grooming Frequency', breedInfo.groom_frequency)}
+                    ${renderBar('Drooling Level', breedInfo.drooling)}
+                    ${renderBar('Adaptability', breedInfo.adaptability)}
+                    ${renderBar('Trainability', breedInfo.trainability)}
+                    ${renderBar('Energy Level', breedInfo.energy)}
+                    ${renderBar('Barking Level', breedInfo.barking)}
+                    ${renderBar('Stimulation Needs', breedInfo.stimulation_needs)}
                 </div>
 
                 <div class="flex-item">
                     <h2>Exercise tips</h2>
                     <ul>
-                        <li>HELP</li>
+                        ${Array.isArray(data.exercise_tips) ? data.exercise_tips.map(tip => `<li>${tip}</li>`).join('') : '<li>No exercise tips available</li>'}
                     </ul>
                 </div>
             `;
