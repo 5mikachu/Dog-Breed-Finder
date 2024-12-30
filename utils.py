@@ -2,6 +2,7 @@ import json
 
 from flask import request
 
+
 def load_json(file_name: str) -> dict:
     """
     Load a JSON file
