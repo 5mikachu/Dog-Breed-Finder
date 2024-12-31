@@ -1,10 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    if (window.location.href === "http://127.0.0.1:5000/breeds") {
-        window.location.replace("http://127.0.0.1:5000/breeds/None");
-    }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
     const breedSelect = document.getElementById("breed");
     const pathArray = window.location.pathname.split('/');
     const breedFromURL = pathArray[pathArray.length - 1];  // Get the breed from the URL
