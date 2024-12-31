@@ -33,7 +33,7 @@
         <h2>Matching Breeds:</h2>
         {% if search %}
         {% if breeds %}
-        <ul>
+        <ul id="dog_search_results">
             {% for breed in breeds %}
             <li><a href="/breeds/{{ breed }}">{{ breed }}</a></li>
             {% endfor %}
