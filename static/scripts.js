@@ -35,6 +35,8 @@ function renderBreedInfo(breedName) {
                 const breedInfo = data.breed_info;  // Access the nested breed_info object
                 document.getElementById('breedInfo').innerHTML = `
                 <div class="flex-item">
+                    <img class="breed-image" src="/static/img/breeds/${breedName}.jpg" alt="Image of the ${breedName}">
+
                     <h2>Physical Attributes</h2>
                     <ul>
                         <li><strong>Height:</strong> <br /> <em>${breedInfo.height}</em></li>
@@ -67,7 +69,7 @@ function renderBreedInfo(breedName) {
                     ${renderBar('Stimulation Needs', breedInfo.stimulation_needs)}
                 </div>
 
-                <div class="flex-item">
+                <div class="flex-item" id="tips_container">
                     <h2>Exercise tips</h2>
                     <ul>
                         ${Array.isArray(data.exercise_tips) ? data.exercise_tips.map(tip => `<li>${tip}</li>`).join('') : '<li>No exercise tips available</li>'}

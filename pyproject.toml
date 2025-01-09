@@ -1,20 +1,14 @@
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "dog_breed_finder"
-version = "0.1.0"
+version = "1.0.0"
 description = "A web application to find the perfect dog breed."
 authors = [
     { name = "Micah van der Horst" }
 ]
 dependencies = [
-    "Flask",
+    "flask",
 ]
 
-[tool.flask]
-env = "development"
-
-[tool.setuptools.packages.find]
-include = ["dog_breed_finder"]
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
