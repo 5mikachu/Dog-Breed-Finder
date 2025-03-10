@@ -460,5 +460,26 @@
         "energy": "3",
         "barking": "1",
         "stimulation_needs": "3"
+    },
+    "Border Collie": {
+        "height": ["18", "22"],
+        "weight": ["30", "50"],
+        "life": ["12", "15"],
+        "affectionate_family": "5",
+        "children": "3",
+        "other_dogs": "3",
+        "shedding": "3",
+        "groom_frequency": "3",
+        "drooling": "1",
+        "coat_type": ["double", "wavy"],
+        "coat_length": ["medium"],
+        "strangers": "4",
+        "playfulness": "5",
+        "protective": "3",
+        "adaptability": "5",
+        "trainability": "5",
+        "energy": "5",
+        "barking": "4",
+        "stimulation_needs": "5"
     }
 }

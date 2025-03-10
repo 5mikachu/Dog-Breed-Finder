@@ -2,56 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon" type="image/x-icon">
-    <title>PWS - Micah van der Horst</title>
+    <title>Research</title>
 </head>
-<body class="article">
+<body>
 
 {% extends "header.html" %}
 {% block content %}
 
 <div class="flex-container">
     <div class="flex-item">
-        <h1>Open with webarchive</h1>
-
-        <h2>Requirements</h2>
-        <ul>
-            <li><a href="https://www.npmjs.com/package/http-server">http-server</a></li>
-        </ul>
-
-        <h2>Opening</h2>
-        <ol>
-            <li>Download the <a href="https://raw.githubusercontent.com/5mikachu/Dog-Breed-Finder/main/research/webHelpPWS-MVDH2-all.zip" download="webHelpPWS-MVDH2-all.zip">webHelpPWS-MVDH2-all.zip</a> file.</li>
-            <li>Unzip the <i>webHelpPWS-MVDH2-all.zip</i> file.</li>
-            <li>Open the extracted files</li>
-            <li>Run <i>http-server</i>.</li>
-            <li>Got to <a href="http://localhost:8080/">http://localhost:8080/</a>.</li>
-        </ol>
+        <h1>Life Stages</h1>
+        <p>Een hond is een belangrijk deel van het gezin, en door in elke levensfase de juiste zorg en aandacht te bieden, zorg je voor een gelukkig en gezond leven samen.</p>
+        <p>Honden doorgaan verschillende levensstadiums, hierin vinden zowel fysieke veranderingen plaats als gedragsveranderingen. Als hondeneigenaar is het belangrijk</p>
+        <em><a href="{{ url_for('research_life_stages') }}">More...</a></em>
     </div>
-
     <div class="flex-item">
-        <h1>Open with MD files</h1>
-
-        <h2>Opening</h2>
-        <ol>
-            <li>Download the <a href="https://raw.githubusercontent.com/5mikachu/Dog-Breed-Finder/main/research/mdHelpPWS-MVDH2-all.zip" download="mdHelpPWS-MVDH2-all.zip">mdHelpPWS-MVDH2-all.zip</a> file.</li>
-            <li>Unzip the <i>mdHelpPWS-MVDH2-all.zip file.</i></li>
-            <li>Open the MD files.</li>
-        </ol>
+        <h1>...</h1>
+        <p></p>
+        <em><a href="">More...</a></em>
     </div>
-
-    <div class="flex-item">
-        <h1>Open with WriterSide</h1>
-
-        <h2>Opening</h2>
-        <ol>
-            <li>Clone the Dog-Breed-Finder repo.</li>
-            <li>Open WriterSide in the main directory.</li>
-            <li>Optionally open the preview in a web browser or export it.</li>
-        </ol>
 </div>
 
 {% endblock %}
+
 </body>
 </html>

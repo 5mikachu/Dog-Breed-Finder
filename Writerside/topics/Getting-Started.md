@@ -1,6 +1,13 @@
 # Getting Started
 
-## Staring the Application
+## Open via the website
+
+1. Got to https://gekco.dev
+2. Use the tool
+
+## Run locally
+
+### Staring the Application
 When running the application locally, the user first needs to run it. To do this, you need to;
 1. Install Python; to install it follow the instructions for your operating system;
    * **Windows**
@@ -59,7 +66,7 @@ When running the application locally, the user first needs to run it. To do this
      python3 app.py
      ```
 
-## Accessing the Application
+### Accessing the Application
 1. Open the Dog Breed Finder in your web browser by navigating to the provided URL or `http://127.0.0.1:5000` if running locally.
 2. Use the navigation menu to access the app’s features:
     - **Breed Information**: Learn about specific dog breeds.

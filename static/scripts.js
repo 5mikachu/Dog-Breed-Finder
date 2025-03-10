@@ -35,38 +35,69 @@ function renderBreedInfo(breedName) {
                 const breedInfo = data.breed_info;  // Access the nested breed_info object
                 document.getElementById('breedInfo').innerHTML = `
                 <div class="flex-item">
-                    <img class="breed-image" src="/static/img/breeds/${breedName}.jpg" alt="Image of the ${breedName}">
+                    <img class="breed-image" src="/static/img/breeds/${breedName}.jpg" alt="Image of the ${breedName}" />
+                </div>
 
+                <div class="flex-item">
                     <h2>Physical Attributes</h2>
                     <ul>
-                        <li><strong>Height:</strong> <br /> <em>${breedInfo.height}</em></li>
-                        <li><strong>Weight:</strong> <br /> <em>${breedInfo.weight}</em></li>
-                        <li><strong>Life Expectancy:</strong> <br /> <em>${breedInfo.life}</em></li>
-                        <li><strong>Coat Type:</strong> <br /> <em>${breedInfo.coat_type}</em></li>
-                        <li><strong>Coat Length:</strong> <br /> <em>${breedInfo.coat_length}</em></li>
+                        <li>
+                            <strong>Height:</strong>
+                            <ul>
+                                <li><em>${breedInfo.height}</em></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Weight:</strong>
+                            <ul>
+                                <li><em>${breedInfo.weight}</em></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Life Expectancy:</strong>
+                            <ul>
+                                <li><em>${breedInfo.life}</em></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Coat Type:</strong>
+                            <ul>
+                                <li><em>${breedInfo.coat_type}</em></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Coat Length:</strong>
+                            <ul>
+                                <li><em>${breedInfo.coat_length}</em></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="flex-item">
                     <h2>Temperament</h2>
-                    ${renderBar('Affectionate with Family', breedInfo.affectionate_family)}
-                    ${renderBar('Good with Children', breedInfo.children)}
-                    ${renderBar('Good with Other Dogs', breedInfo.other_dogs)}
-                    ${renderBar('Friendliness with Strangers', breedInfo.strangers)}
-                    ${renderBar('Playfulness Level', breedInfo.playfulness)}
-                    ${renderBar('Protective Nature', breedInfo.protective)}
+                    <ul>
+                        ${renderBar('Affectionate with Family', breedInfo.affectionate_family)}
+                        ${renderBar('Good with Children', breedInfo.children)}
+                        ${renderBar('Good with Other Dogs', breedInfo.other_dogs)}
+                        ${renderBar('Friendliness with Strangers', breedInfo.strangers)}
+                        ${renderBar('Playfulness Level', breedInfo.playfulness)}
+                        ${renderBar('Protective Nature', breedInfo.protective)}
+                    </ul>
                 </div>
 
                 <div class="flex-item">
                     <h2>Care Requirements</h2>
-                    ${renderBar('Shedding Level', breedInfo.shedding)}
-                    ${renderBar('Grooming Frequency', breedInfo.groom_frequency)}
-                    ${renderBar('Drooling Level', breedInfo.drooling)}
-                    ${renderBar('Adaptability', breedInfo.adaptability)}
-                    ${renderBar('Trainability', breedInfo.trainability)}
-                    ${renderBar('Energy Level', breedInfo.energy)}
-                    ${renderBar('Barking Level', breedInfo.barking)}
-                    ${renderBar('Stimulation Needs', breedInfo.stimulation_needs)}
+                    <ul>
+                        ${renderBar('Shedding Level', breedInfo.shedding)}
+                        ${renderBar('Grooming Frequency', breedInfo.groom_frequency)}
+                        ${renderBar('Drooling Level', breedInfo.drooling)}
+                        ${renderBar('Adaptability', breedInfo.adaptability)}
+                        ${renderBar('Trainability', breedInfo.trainability)}
+                        ${renderBar('Energy Level', breedInfo.energy)}
+                        ${renderBar('Barking Level', breedInfo.barking)}
+                        ${renderBar('Stimulation Needs', breedInfo.stimulation_needs)}
+                    </ul>
                 </div>
 
                 <div class="flex-item" id="tips_container">

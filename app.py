@@ -54,10 +54,12 @@ def search():
 
 @app.route("/research")
 def research():
-    """
-    Research page
-    """
     return render_template("research.html")
+
+
+@app.route("/research/life_stages")
+def research_life_stages():
+    return render_template("life_stages.html")
 
 
 if __name__ == "__main__":

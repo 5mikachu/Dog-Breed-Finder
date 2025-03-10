@@ -131,33 +131,36 @@ select, input {
     width: 100%;
 }
 .flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
     gap: 1em;
     margin: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(min(35em, 100%), 1fr));
     @media (max-width: 700px) {
         margin: 0;
     }
 }
 .flex-item {
-    flex: 1 1 15em;
+    display: flex;
     padding: 2em;
-    border-radius: 2em;
-    background: var(--mantle);
-    box-shadow: 0 0.5em 1.5em rgba(0, 0, 0, 0.2);
     margin: 0.5em;
+    border-radius: 2em;
+    flex-direction: column;
+    background-color: var(--mantle);
+    box-shadow: 0 0.5em 1.5em rgba(0, 0, 0, 0.2);
 }
 .flex-item h1 {
     font-size: 3em;
     margin: 0 0 0.5em 0;
 }
 .breed-image {
-    margin: 0 auto;
+    margin: auto auto;
     border-radius: 1em;
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
-    max-width: 20em;
     width: clamp(10em, 100%, 20em);
+    height: clamp(10em, 100%, 20em);
+    background-image: url(/static/img/breeds/missing.svg)
+    background-repeat: no-repeat;
+    background-size: 100% auto;
 }
 #tips_container {
     display: none;
@@ -167,10 +170,10 @@ select, input {
 }
 ul {
     list-style-type: none;
-    padding-left: 0;
-}
-li {
-    margin-bottom: 0.75em;
+    padding: 0 1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, min(10em, 100%));
+    gap: 0.75em;
 }
 a {
     text-decoration: none;
