@@ -59,7 +59,11 @@ def research():
 
 @app.route("/research/life_stages")
 def research_life_stages():
-    return render_template("life_stages.html")
+    return render_template("research/life_stages.html")
+
+@app.route("/research/sports")
+def research_sports():
+    return render_template("research/sports.html")
 
 
 if __name__ == "__main__":
